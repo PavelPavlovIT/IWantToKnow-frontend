@@ -1,0 +1,52 @@
+<div class="main-div">
+  <div [ngClass]="isMobile ? 'run-study-card-mobile' : 'run-study-card-desktop'">
+    <div cdkDropListGroup style="margin-top: -50px">
+      <div *ngIf="(!isSuccess && !isError);">
+        <section>
+          <mat-grid-list cols="4" rowHeight="500">
+            <mat-grid-tile colspan="2" class="mat-grid-tile">
+              <div class="example-container">
+                <button mat-raised-button class="run-button-exam" (click)="Mic($event)">
+                  <!--                  <span class="material-icons">mic</span>-->
+                  <span *ngIf="!recognizing" class="material-icons color_blue font_size">mic</span>
+                  <span *ngIf="recognizing" class="material-icons color_blue font_size">stop</span>
+                  <div *ngIf="!recognizing">Говорить</div>
+                  <div *ngIf="recognizing">Проверить</div>
+                </button>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2">
+              <div class="example-container">
+                <div id="speechdiv">
+                  <input [readOnly]="true"
+                    [(ngModel)]="speech"
+                    type="text"
+                    [ngClass]="isMobile ? 'example-list-mobile' : 'example-list-desktop'"
+                    [innerHTML]="innerHtml">
+                </div>
+              </div>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </section>
+      </div>
+      <div *ngIf="isSuccess">
+        <section>
+          <mat-grid-list cols="4" rowHeight="500">
+            <mat-grid-tile colspan="4" class="mat-grid-tile-success">
+              <mat-card-title class="true_title">Это верный ответ</mat-card-title>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </section>
+      </div>
+      <div *ngIf="isError;">
+        <section>
+          <mat-grid-list cols="4" rowHeight="500">
+            <mat-grid-tile colspan="4" class="mat-grid-tile-error">
+              <mat-card-title class="true_title">ЭТО ОШИБКА!!!</mat-card-title>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<div *ngIf="isLoading; then SpinnerBlock else ContentBlock"></div>
+<ng-template #SpinnerBlock>
+  <!--  <div class="spin-center">-->
+  <!--    <mat-spinner></mat-spinner>-->
+  <!--  </div>-->
+</ng-template>
+<ng-template #ContentBlock>
+  <div *ngIf="(isLearned == true) else IsNotLearnedBlock;">
+    <mat-card>
+      {{ note }}
+    </mat-card>
+  </div>
+
+  <ng-template #IsNotLearnedBlock>
+    <br>
+    <div *ngIf="(isSuccess==false)">
+      <app-task-details
+        [audioSource]="audioSource"
+        [question]="question"
+        [categoryId]="categoryId"
+        [typeTestId]="typeTestId"
+      ></app-task-details>
+      <app-question-and-clock
+        [Reverse]="reverse"
+        [Answers]="inputAnswers"
+        [question]="question"
+        [typeTestId]="typeTestId"
+        [audioSource]="audioSource"
+        [question_value]="question"
+        [answers]="todo"
+      ></app-question-and-clock>
+    </div>
+    <div *ngIf="(isSuccess==true)">
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+    <br>
+    <app-study-answers
+      [typeTestId]="typeTestId"
+      [question_value]="question"
+      [todo]="todo"
+      [done]="done"
+      [Reverse]="reverse"
+      [isSuccess]="isSuccess"
+      [isError]="isError"
+      (Result)="getResult($event)"
+    ></app-study-answers>
+    <div *ngIf="Speaking==false" class="main-div">
+
+      <div [ngClass]="isMobile ? 'run-test-card-mobile' : 'run-test-card-desktop'">
+        <div class="items-row">
+          <div *ngIf="(isSuccess == false && isError==false)">
+            <button mat-raised-button class="run-button-exam" (click)="next()">Следующее задание</button>
+            <button mat-raised-button class="run-button-exam" (click)="skip()">Пропустить</button>
+          </div>
+          <div *ngIf="(isError==true)">
+            <button mat-raised-button class="run-button-exam" (click)="next()">Сделать задание снова</button>
+            <button mat-raised-button class="run-button-exam" (click)="skip()">Пропустить</button>
+          </div>
+          <div *ngIf="(isSuccess==true)">
+            <button mat-raised-button class="run-button-exam" (click)="next2()">Следующее задание</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</ng-template>

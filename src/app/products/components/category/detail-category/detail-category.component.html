@@ -1,0 +1,54 @@
+<app-header-hierarchy-of-categories [categoryId]="category.categoryId"></app-header-hierarchy-of-categories>
+<div class="main-div">
+  <form class="add-category" [formGroup]="updateCategoryForm" (ngSubmit)="submitForm()">
+    <mat-tab-group>
+      <mat-tab label="English">
+        <mat-card>
+          <mat-form-field class="full-width">
+            <mat-label>Category name</mat-label>
+            <textarea matInput placeholder="..." [formControl]="updateCategoryForm.controls.nameEn"></textarea>
+          </mat-form-field>
+          <mat-divider></mat-divider>
+          <mat-form-field class="full-width">
+            <mat-label>Category description</mat-label>
+            <textarea matInput placeholder="..." [formControl]="updateCategoryForm.controls.descriptionEn"></textarea>
+          </mat-form-field>
+          <mat-divider></mat-divider>
+          <mat-form-field class="full-width">
+            <mat-label>Order by</mat-label>
+            <textarea matInput placeholder="..." [formControl]="updateCategoryForm.controls.orderBy"></textarea>
+          </mat-form-field>
+
+        </mat-card>
+      </mat-tab>
+      <mat-tab label="Spanish">
+        <mat-card>
+          <mat-form-field class="full-width">
+            <mat-label>Category name</mat-label>
+            <textarea matInput placeholder="..." [formControl]="updateCategoryForm.controls.nameEs"></textarea>
+          </mat-form-field>
+          <mat-divider></mat-divider>
+          <mat-form-field class="full-width">
+            <mat-label>Category description</mat-label>
+            <textarea matInput placeholder="..." [formControl]="updateCategoryForm.controls.descriptionEs"></textarea>
+          </mat-form-field>
+        </mat-card>
+      </mat-tab>
+      <mat-tab label="Russian">
+        <mat-card>
+          <mat-form-field class="full-width">
+            <mat-label>Category name</mat-label>
+            <textarea matInput placeholder="..." [formControl]="updateCategoryForm.controls.nameRu"></textarea>
+          </mat-form-field>
+          <mat-divider></mat-divider>
+          <mat-form-field class="full-width">
+            <mat-label>Category description</mat-label>
+            <textarea matInput placeholder="..." [formControl]="updateCategoryForm.controls.descriptionRu"></textarea>
+          </mat-form-field>
+          <mat-divider></mat-divider>
+          <button mat-raised-button type="submit">Save</button>
+        </mat-card>
+      </mat-tab>
+    </mat-tab-group>
+  </form>
+</div>

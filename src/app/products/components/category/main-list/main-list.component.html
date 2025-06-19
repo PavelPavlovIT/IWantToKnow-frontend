@@ -1,0 +1,47 @@
+<div *ngIf="isLoading; then SpinnerBlock else CategoryBlock"></div>
+<ng-template #SpinnerBlock>
+  <div class="spin-center">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
+<ng-template #CategoryBlock>
+  <app-header-hierarchy-of-categories [categoryId]="parentId"></app-header-hierarchy-of-categories>
+  <div *ngFor="let category of categories" [ngClass]="isMobile ? 'items-row-mobile' : 'items-row-desktop'">
+    <div *ngIf="!category.hidden; then activeCategoryBlockDesktop"></div>
+    <ng-template #activeCategoryBlockDesktop>
+      <div *ngIf="category.countQuestions==-2; then BlockCategoryWithExamDesktop"></div>
+      <ng-template #BlockCategoryWithExamDesktop>
+        <app-category-with-exam
+          [CategoryId]="category.categoryId"
+          [Title]="category.nameRu"
+          [Description]="category.descriptionRu"
+          [Reverse]="category.reverse"
+          [TestResultSpeak]="category.testResultSpeaking"
+          [TestResultListen]="category.testResultListen"
+          [TestResultRead]="category.testResultRead"
+        ></app-category-with-exam>
+      </ng-template>
+      <div *ngIf="category.countQuestions==-1; then BlockJustCategoryDesktop"></div>
+      <ng-template #BlockJustCategoryDesktop>
+        <app-category-only-title
+          [CategoryId]="category.categoryId"
+          [Title]="category.nameRu"
+          [Description]="category.descriptionRu"
+        ></app-category-only-title>
+      </ng-template>
+      <div *ngIf="category.countQuestions>0; then BlockQuestionsDesktop"></div>
+      <ng-template #BlockQuestionsDesktop>
+        <app-category-with-test-and-study
+          [CategoryId]="category.categoryId"
+          [Title]="category.nameRu"
+          [Description]="category.descriptionRu"
+          [Reverse]="category.reverse"
+          [TestResultSpeak]="category.testResultSpeaking"
+          [TestResultListen]="category.testResultListen"
+          [TestResultRead]="category.testResultRead"
+        ></app-category-with-test-and-study>
+      </ng-template>
+    </ng-template>
+  </div>
+</ng-template>
+

@@ -1,0 +1,56 @@
+<mat-card [ngClass]="IsMobile ? 'mat-card-exam-mobile' : 'mat-card-exam-desktop'">
+  <mat-card-content>
+    <section>
+      <mat-card-title>
+        <a href="products/categories/{{CategoryId}}" class="nav__link" matInput>{{ Title }}</a>
+      </mat-card-title>
+      <mat-card-subtitle class="categoryDescription">
+        {{ Description }}
+      </mat-card-subtitle>
+      <mat-card-subtitle ngClass="categoryDescription">
+        Последние результаты тестов
+      </mat-card-subtitle>
+      <mat-card-subtitle *ngIf="!Reverse" ngClass="categoryDescription">
+        <div
+          *ngIf="TestResultSpeak===''; then BlockLinkToPremiumExamSpeaking else BlockPersentExamSpeaking">
+        </div>
+        <ng-template #BlockLinkToPremiumExamSpeaking>
+          Говорение: доступны для <a href="account/page" class="nav__link" matInput>"Premium user"</a>
+        </ng-template>
+        <ng-template #BlockPersentExamSpeaking>
+          {{ "Говорение: " + TestResultSpeak }}
+        </ng-template>
+      </mat-card-subtitle>
+      <mat-card-subtitle ngClass="categoryDescription">
+        <div
+          *ngIf="TestResultListen===''; then BlockLinkToPremiumExamListen else BlockPersentExamListen">
+        </div>
+        <ng-template #BlockLinkToPremiumExamListen>
+          Аудирование: доступны <a href="account/page" class="nav__link" matInput>"Premium user"</a>
+        </ng-template>
+        <ng-template #BlockPersentExamListen>
+          {{ "Аудирование: " + TestResultListen }}
+        </ng-template>
+      </mat-card-subtitle>
+      <mat-card-subtitle ngClass="categoryDescription">
+        <div *ngIf="TestResultRead===''; then BlockLinkToPremiumExamRead else BlockPersentExamRead">
+        </div>
+        <ng-template #BlockLinkToPremiumExamRead>
+          Чтение: доступны <a href="account/page" class="nav__link" matInput>"Premium user"</a>
+        </ng-template>
+        <ng-template #BlockPersentExamRead>
+          {{ "Чтение: " + TestResultRead }}
+        </ng-template>
+      </mat-card-subtitle>
+      <div ngClass="sectionButtons">
+        <button matButton="elevated" class="button-exam" (click)="OpenExamBottomSheet(
+                CategoryId,
+                Title,
+                Reverse
+              )">Экзамен
+        </button>
+        <!--        <button matButton="elevated" class="button-exam-disabled" disabled><s>Изучение</s></button>-->
+      </div>
+    </section>
+  </mat-card-content>
+</mat-card>

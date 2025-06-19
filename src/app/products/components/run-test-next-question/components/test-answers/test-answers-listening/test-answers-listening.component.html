@@ -1,0 +1,35 @@
+<div class="main-div">
+  <div [ngClass]="isMobile ? 'run-study-card-mobile' : 'run-study-card-desktop'">
+    <div cdkDropListGroup style="margin-top: -50px">
+        <section>
+          <mat-grid-list cols="4" rowHeight="500">
+            <mat-grid-tile colspan="2" class="mat-grid-tile">
+              <div class="example-container">
+                <mat-card-subtitle class="true_title">Не верно</mat-card-subtitle>
+                <div cdkDropList [cdkDropListData]="todo"
+                     [ngClass]="isMobile ? 'example-list-mobile' : 'example-list-desktop'"
+                     (cdkDropListDropped)="drop($event)">
+                  @for (item of todo; track item) {
+                    <div class="example-box" cdkDrag>{{ item }}</div>
+                  }
+                </div>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2">
+              <div class="example-container">
+                <mat-card-subtitle class="true_title">Верно</mat-card-subtitle>
+                <div cdkDropList [cdkDropListData]="done"
+                     [ngClass]="isMobile ? 'example-list-mobile' : 'example-list-desktop'"
+                     (cdkDropListDropped)="drop($event)">
+                  @for (item of done; track item) {
+                    <div class="example-box" cdkDrag>{{ item }}</div>
+                  }
+                </div>
+              </div>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </section>
+
+    </div>
+  </div>
+</div>

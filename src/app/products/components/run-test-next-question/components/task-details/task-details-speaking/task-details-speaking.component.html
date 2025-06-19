@@ -1,0 +1,28 @@
+<div class="main-div">
+  <table>
+    <tr>
+      <td class="name_column">
+        <mat-card-subtitle class="name_title">{{ type_task_title }}</mat-card-subtitle>
+      </td>
+      <td class="value_column">
+        <mat-card-subtitle *ngIf="isMobile" class="title">{{ type_task_value }}</mat-card-subtitle>
+        <mat-card-title *ngIf="!isMobile" class="title">{{ type_task_value }}</mat-card-title>
+      </td>
+    </tr>
+    <tr>
+      <td class="name_column">
+        <mat-card-subtitle class="name_title">Задание на говорение</mat-card-subtitle>
+      </td>
+      <td class="value_column">
+        <mat-card-subtitle *ngIf="isMobile" class="title">{{ task_value }}</mat-card-subtitle>
+        <mat-card-title *ngIf="!isMobile" class="title">{{ task_value }}</mat-card-title>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <mat-divider></mat-divider>
+      </td>
+    </tr>
+  </table>
+</div>
+<!--<button mat-raised-button class="run-button-exam" (click)="debug()" >Debug</button>-->

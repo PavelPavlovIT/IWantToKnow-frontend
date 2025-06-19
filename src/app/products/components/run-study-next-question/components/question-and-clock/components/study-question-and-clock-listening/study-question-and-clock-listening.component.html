@@ -1,0 +1,15 @@
+<div class="main-div">
+  <div [ngClass]="isMobile ? 'item-mobile' : 'item-desktop'">
+    <table style="width: 100%">
+      <tr>
+        <td style="width: 80%">
+          <audio #audio class="d-none"></audio>
+          <button mat-raised-button class="run-button-exam" (click)="Play()">
+            <mat-icon>audiotrack</mat-icon>
+            Слушать
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

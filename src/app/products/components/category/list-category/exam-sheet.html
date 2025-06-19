@@ -1,0 +1,31 @@
+﻿<mat-nav-list>
+  <a [routerLink]="['/products/run-test-by-category',
+                  data.categoryId,
+                  data.nameRu,
+                  '7b4da4cf-52b5-4c78-9834-b56e9dbe491a',
+                  'undefined']"
+     mat-list-item (click)="openLink($event)">
+    <span matListItemTitle>Экзамен</span>
+    <span matLine>аудирование</span>
+  </a>
+  <a [routerLink]="['/products/run-test-by-category',
+                  data.categoryId,
+                  data.nameRu,
+                  '9f8fb08c-0074-4860-8a95-6f49ab6bf5ac',
+                  'undefined']"
+     mat-list-item (click)="openLink($event)">
+    <span matListItemTitle>Экзамен</span>
+    <span matLine>чтение</span>
+  </a>
+  <div *ngIf="(data.reverse == false)">
+    <a [routerLink]="['/products/run-test-by-category',
+                  data.categoryId,
+                  data.nameRu,
+                  'e84ee3a2-82ee-4bc7-898a-50fcbad4f3e0',
+                  'undefined']"
+       mat-list-item (click)="openLink($event)">
+      <span matListItemTitle>Экзамен</span>
+      <span matLine>говорение</span>
+    </a>
+  </div>
+</mat-nav-list>

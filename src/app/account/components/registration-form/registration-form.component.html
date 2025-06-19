@@ -1,0 +1,83 @@
+<div class="main-div">
+    <mat-card>
+        <mat-card-title>Registration</mat-card-title>
+        <mat-card-content>
+            <form class="add-category" [formGroup]="registerForm">
+                <table>
+                    <tr>
+                        <td width="95%">
+                            <mat-form-field class="full-width">
+                                <mat-label>Email</mat-label>
+                                <input type="email" matInput [formControl]="registerForm.controls.email" ngModel email
+                                    pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required
+                                    placeholder="email">
+                            </mat-form-field>
+                        </td>
+                        <td width="5%">
+                            <div *ngIf="ValidateEmail()" ngClass="checkValidButton">
+                                <img src="ok.png" height="32" width="32" />
+                            </div>
+                            <div *ngIf="!ValidateEmail()" ngClass="checkValidButton">
+                                <img src="error.png" height="32" width="32" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="95%">
+                            <mat-form-field class="full-width">
+                                <mat-label>Password</mat-label>
+                                <input [type]="hide ? 'password' : 'text'" matInput
+                                    [formControl]="registerForm.controls.password" placeholder="password">
+                                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off'
+                                    :'visibility'}}</mat-icon>
+                                <mat-hint *ngIf="passwordInputRegister" ngClass="hint-error">Enter password</mat-hint>
+                            </mat-form-field>
+                        </td>
+                        <td width="5%">
+                            <div *ngIf="ValidatePassword()"  ngClass="checkValidButton">
+                                <img src="ok.png" height="32" width="32" />
+                            </div>
+                            <div *ngIf="!ValidatePassword()"  ngClass="checkValidButton">
+                                <img src="error.png" height="32" width="32" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="95%">
+                            <mat-form-field class="full-width">
+                                <mat-label>Confirm password</mat-label>
+                                <input [type]="hide ? 'password' : 'text'" matInput
+                                    [formControl]="registerForm.controls.confirmPassword"
+                                    placeholder="confirm password">
+                                <mat-hint *ngIf="confirmPasswordInputRegister" ngClass="hint-error">Enter confirm password</mat-hint>
+                            </mat-form-field>
+                        </td>
+                        <td width="5%">
+                            <div *ngIf="ValidatePassword()" ngClass="checkValidButton">
+                                <img src="ok.png" height="32" width="32" />
+                            </div>
+                            <div *ngIf="!ValidatePassword()" ngClass="checkValidButton">
+                                <img src="error.png" height="32" width="32" />
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="row m-3" *ngIf="registerFailed">
+                    <label style="color: red">Registration failed.</label>
+                    <div class="row m-3" *ngFor="let error of errors">
+                        <label style="color: red">{{error}}</label>
+                    </div>
+                </div>
+                <div *ngIf="registerSucceeded">
+                    <h4 style="color: lightgreen">Registration succeeded</h4>
+                    <div>
+                        Please confirm email and <a href="login">Login</a> to continue.
+                    </div>
+                </div>
+                <button mat-raised-button
+                    [disabled]="!(this.ValidateEmail() && this.ValidatePassword() && ValidateLanguage())"
+                    (click)="Register()">Register</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

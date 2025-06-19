@@ -1,0 +1,31 @@
+<mat-card>
+<mat-toolbar>
+  <div *ngIf="categories.length==0 then thenBlock else elseBlock"></div>
+  <ng-template #thenBlock>
+  </ng-template>
+  <ng-template #elseBlock>
+
+    <mat-nav-list class="list-horizontal" *ngFor="let category of categories">
+      
+        <mat-list-item>
+          <img src="duble_right_arrow.png" height="32" width="32" />
+          <div *ngIf="category.countQuestions==-2; then BlockJustCategory"></div>
+          <div *ngIf="category.countQuestions==-1; then BlockJustCategory"></div>
+          <ng-template #BlockJustCategory>
+            <a href="products/categories/{{category.categoryId}}" class="nav__link" matInput>
+              {{getNameByLanguage(category)}}
+            </a>
+          </ng-template>
+          <div *ngIf="category.countQuestions>0; then BlockQuestions"></div>
+          <ng-template #BlockQuestions>
+            <a href="products/questions/{{category.categoryId}}" class="nav__link" matInput>
+              {{getNameByLanguage(category)}}
+            </a>
+          </ng-template>
+        </mat-list-item>
+      
+    </mat-nav-list>
+
+  </ng-template>
+</mat-toolbar>
+</mat-card>

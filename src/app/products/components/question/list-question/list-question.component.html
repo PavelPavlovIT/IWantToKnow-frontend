@@ -1,0 +1,16 @@
+<app-header-hierarchy-of-categories [categoryId]="categoryId"></app-header-hierarchy-of-categories>
+<mat-card>
+    <div *ngFor="let question of questions">
+        <mat-card-content [id]="question.questionId">
+            <section>
+                <p>
+                    <mat-card-title>
+                        <a href="{{currentRoute}}" class="nav__link" (click)="Goto(question)">
+                            {{ getTitle(question) }}
+                        </a>
+                    </mat-card-title>
+                </p>
+            </section>
+        </mat-card-content>
+    </div>
+</mat-card>

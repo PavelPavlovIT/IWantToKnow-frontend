@@ -1,0 +1,44 @@
+@use '@angular/material' as mat;
+
+.checkValidButton{
+  margin: 0 0 15px;
+}
+
+
+.run-button {
+  background: #49cc90;
+  //border-radius: 3px;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  min-width: 80px;
+  padding: 6px 0;
+  text-align: center;
+  //text-shadow: 0 1px 0 rgba(0,0,0,.1);
+}
+
+
+$theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$azure-palette,
+    tertiary: mat.$blue-palette,
+  )
+));
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 30px;
+  height: 100%;
+
+  @include mat.all-component-themes($theme);
+}
+
+html {
+  height: 100%;
+}
+
+@include mat.core();
+@include mat.color-variants-backwards-compatibility($theme);

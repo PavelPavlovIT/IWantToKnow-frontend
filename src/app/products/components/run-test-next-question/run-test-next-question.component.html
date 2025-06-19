@@ -1,0 +1,36 @@
+<div *ngIf="isLoading; then SpinnerBlock else ContentBlock"></div>
+<ng-template #SpinnerBlock>
+<!--  <div class="spin-center">-->
+<!--    <mat-spinner></mat-spinner>-->
+<!--  </div>-->
+</ng-template>
+<ng-template #ContentBlock>
+  <br>
+  <app-task-details
+    [audioSource]="audioSource"
+    [question]="question"
+    [categoryId]="categoryId"
+    [typeTestId]="typeTestId"
+  ></app-task-details>
+  <app-question-and-clock
+    [Answers]="inputAnswers"
+    [typeTestId]="typeTestId"
+    [question]="question"
+    [audioSource]="audioSource"
+  ></app-question-and-clock>
+  <br>
+  <app-test-answers
+    [typeTestId]="typeTestId"
+    [question_value]="question"
+    [todo]="todo"
+    [done]="done"
+    (ResultSpeaking)="getResultSpeaking($event)">
+    >
+  </app-test-answers>
+
+  <div *ngIf="Speaking==false" class="main-div">
+    <div [ngClass]="isMobile ? 'run-test-card-mobile' : 'run-test-card-desktop'">
+      <button mat-raised-button class="run-button-exam" (click)="next()">Next</button>
+    </div>
+  </div>
+</ng-template>

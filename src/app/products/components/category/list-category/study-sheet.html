@@ -1,0 +1,43 @@
+﻿<mat-nav-list>
+  <a [routerLink]="['/products/run-study-by-category',
+                  data.categoryId,
+                  '2c4286c2-a0f5-4a72-861c-12829546981b']"
+     mat-list-item (click)="openLink($event)">
+    <span matListItemTitle>Изучение</span>
+    <span matLine>аудирование</span>
+  </a>
+  <a [routerLink]="['/products/run-study-by-category',
+                  data.categoryId,
+                  'dbf39bef-b195-48c8-b328-d1087e085e18',
+                  data.reverse]"
+     mat-list-item (click)="openLink($event)">
+    <span matListItemTitle>Изучение</span>
+    <span matLine>чтение</span>
+  </a>
+<!--  <div *ngIf="(data.reverse == false)">-->
+    <a [routerLink]="['/products/run-study-by-category',
+                  data.categoryId,
+                  '80907d2b-8387-4d4d-b7d6-1bc7d617d1bb']"
+       mat-list-item (click)="openLink($event)">
+      <span matListItemTitle>Изучение</span>
+      <span matLine>говорение - (легкий уровень сложности)</span>
+    </a>
+    <a [routerLink]="['/products/run-study-by-category',
+                  data.categoryId,
+                  '1928f7d7-225f-4c32-b3f8-4786dc3dffee',
+                  data.reverse]"
+       mat-list-item (click)="openLink($event)">
+      <span matListItemTitle>Изучение</span>
+      <span matLine>говорение - (средний уровень сложности)</span>
+    </a>
+    <a [routerLink]="['/products/run-study-by-category',
+                  data.categoryId,
+                  '930c9e4a-60cc-462a-9b4a-0f2e6b263932',
+                  data.reverse]"
+       mat-list-item (click)="openLink($event)">
+      <span matListItemTitle>Изучение</span>
+      <span matLine>говорение - (максимальный уровень сложности)</span>
+    </a>
+<!--  </div>-->
+
+</mat-nav-list>

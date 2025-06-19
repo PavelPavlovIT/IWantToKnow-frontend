@@ -1,0 +1,84 @@
+/* Основные стили страницы */
+body {
+  font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 2rem;
+  margin: 0;
+}
+
+/* Контейнер для секции */
+section {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Заголовки */
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1a73e8;
+}
+
+h3 {
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+/* Списки */
+ul {
+  margin-left: 1.5rem;
+  padding-left: 1rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Акценты */
+strong {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+em {
+  color: #666;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+/* Ссылки */
+a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  section {
+    padding: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+}

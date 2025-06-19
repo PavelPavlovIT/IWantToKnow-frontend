@@ -1,0 +1,113 @@
+<div *ngIf="isMobile; then MobileBlock else DesktopBlock"></div>
+<ng-template #DesktopBlock>
+  <div *ngIf="isMatCard">
+    <mat-card>
+      <mat-toolbar>
+        <div *ngIf="categories.length==0 then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock>
+        </ng-template>
+        <ng-template #elseBlock>
+          <mat-nav-list class="list-horizontal" *ngFor="let category of categories">
+            <mat-list-item>
+              <img src="duble_right_arrow.png" class="right_arrow" height="32" width="32"/>
+              <div *ngIf="category.countQuestions==-2; then BlockJustCategoryDesktopMatCard"></div>
+              <div *ngIf="category.countQuestions==-1; then BlockJustCategoryDesktopMatCard"></div>
+              <ng-template #BlockJustCategoryDesktopMatCard>
+                <a href="products/categories/{{category.categoryId}}" class="nav__link" matInput>
+                  {{ category.nameRu }}
+                </a>
+              </ng-template>
+              <div *ngIf="category.countQuestions>0; then BlockQuestionsDesktopMatCard"></div>
+              <ng-template #BlockQuestionsDesktopMatCard>
+                {{ category.nameRu }}
+              </ng-template>
+            </mat-list-item>
+          </mat-nav-list>
+        </ng-template>
+      </mat-toolbar>
+    </mat-card>
+  </div>
+  <div *ngIf="!isMatCard">
+    <mat-toolbar>
+      <div *ngIf="categories.length==0 then thenBlock else elseBlock"></div>
+      <ng-template #thenBlock>
+      </ng-template>
+      <ng-template #elseBlock>
+        <mat-nav-list class="list-horizontal" *ngFor="let category of categories">
+          <mat-list-item>
+            <img src="duble_right_arrow.png" class="right_arrow" height="32" width="32"/>
+            <div *ngIf="category.countQuestions==-2; then BlockJustCategoryDesktopNotMatCard"></div>
+            <div *ngIf="category.countQuestions==-1; then BlockJustCategoryDesktopNotMatCard"></div>
+            <ng-template #BlockJustCategoryDesktopNotMatCard>
+              <a href="products/categories/{{category.categoryId}}" class="nav__link" matInput>
+                {{ category.nameRu }}
+              </a>
+            </ng-template>
+            <div *ngIf="category.countQuestions>0; then BlockQuestionsDesktopNotMatCard"></div>
+            <ng-template #BlockQuestionsDesktopNotMatCard>
+              {{ category.nameRu }}
+            </ng-template>
+          </mat-list-item>
+        </mat-nav-list>
+      </ng-template>
+    </mat-toolbar>
+  </div>
+</ng-template>
+<ng-template #MobileBlock>
+  <div *ngIf="isMatCard">
+    <mat-card>
+      <mat-toolbar>
+        <mat-card>
+          <button mat-button [matMenuTriggerFor]="menu">
+            <img src="duble_right_arrow.png" class="right_arrow" height="32" width="32"/>Категория
+          </button>
+          <mat-menu #menu="matMenu">
+            <div *ngFor="let category of categories">
+              <button mat-menu-item>
+                <img src="duble_right_arrow.png" class="right_arrow" height="32" width="32"/>
+                <div *ngIf="category.countQuestions==-2; then BlockJustCategoryMobileMatCard"></div>
+                <div *ngIf="category.countQuestions==-1; then BlockJustCategoryMobileMatCard"></div>
+                <ng-template #BlockJustCategoryMobileMatCard>
+                  <a href="products/categories/{{category.categoryId}}" class="nav__link" matInput>
+                    {{ category.nameRu }}
+                  </a>
+                </ng-template>
+                <div *ngIf="category.countQuestions>0; then BlockQuestionsMobileMatCard"></div>
+                <ng-template #BlockQuestionsMobileMatCard>
+                  {{ category.nameRu }}
+                </ng-template>
+              </button>
+            </div>
+          </mat-menu>
+        </mat-card>
+      </mat-toolbar>
+    </mat-card>
+  </div>
+  <div *ngIf="!isMatCard">
+    <mat-toolbar>
+      <mat-card>
+        <button mat-button [matMenuTriggerFor]="menu">
+          <img src="duble_right_arrow.png" class="right_arrow" height="32" width="32"/>Категория
+        </button>
+        <mat-menu #menu="matMenu">
+          <div *ngFor="let category of categories">
+            <button mat-menu-item>
+              <img src="duble_right_arrow.png" class="right_arrow" height="32" width="32"/>
+              <div *ngIf="category.countQuestions==-2; then BlockJustCategoryMobileNotMatCard"></div>
+              <div *ngIf="category.countQuestions==-1; then BlockJustCategoryMobileNotMatCard"></div>
+              <ng-template #BlockJustCategoryMobileNotMatCard>
+                <a href="products/categories/{{category.categoryId}}" class="nav__link" matInput>
+                  {{ category.nameRu }}
+                </a>
+              </ng-template>
+              <div *ngIf="category.countQuestions>0; then BlockQuestionsMobileNotMatCard"></div>
+              <ng-template #BlockQuestionsMobileNotMatCard>
+                {{ category.nameRu }}
+              </ng-template>
+            </button>
+          </div>
+        </mat-menu>
+      </mat-card>
+    </mat-toolbar>
+  </div>
+</ng-template>

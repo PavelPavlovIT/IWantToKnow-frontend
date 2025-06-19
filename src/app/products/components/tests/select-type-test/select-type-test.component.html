@@ -1,0 +1,19 @@
+<div class="main-div">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Mode of testing</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="typeOfTestId">
+        @for (item of typeOfTests; track item) {
+          <mat-radio-button class="example-radio-button" [value]="item.typeTestId" checked>{{ item.name }}
+          </mat-radio-button>
+        }
+      </mat-radio-group>
+    </mat-card-content>
+    <button mat-raised-button class="run-button" (click)="OnStart(testId, typeOfTestId)">Start</button>
+  </mat-card>
+</div>

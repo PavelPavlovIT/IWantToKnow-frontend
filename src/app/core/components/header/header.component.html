@@ -1,0 +1,71 @@
+<div *ngIf="isMobile; then MobileBlock else DesktopBlock"></div>
+<ng-template #MobileBlock>
+  <mat-toolbar>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <span>
+      <a href="home" class="nav__link">
+        <img src="net_logo.png" height="64" width="128" />
+      </a>
+    </span>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <a href="products/analytics" class="nav__link">Мой прогресс</a>
+      </button>
+      <button mat-menu-item>
+        <a href="products/categories" class="nav__link">Тестирование и обучение</a>
+      </button>
+      <button mat-menu-item>
+        <a href="account/page" class="nav__link">Профиль</a>
+      </button>
+      <div *ngIf="isSignedIn; then LoginBlock else LogoutBlock"></div>
+      <ng-template #LoginBlock>
+        <button mat-menu-item>
+          <a href="logout" class="nav__link">Выйти</a>
+        </button>
+      </ng-template>
+      <ng-template #LogoutBlock>
+        <button mat-menu-item>
+          <a href="login" class="nav__link">Войти</a>
+        </button>
+      </ng-template>
+
+    </mat-menu>
+  </mat-toolbar>
+</ng-template>
+<ng-template #DesktopBlock>
+  <mat-toolbar>
+    <span>
+      <a href="home" class="nav__link">
+        <img src="net_logo.png" height="64" width="128" />
+      </a>
+    </span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button>
+      <a href="home" class="nav__link">С чего начать</a>
+    </button>
+    <button mat-raised-button>
+      <a href="products/analytics" class="nav__link">Мой прогресс</a>
+    </button>
+    <button mat-raised-button>
+      <a href="products/categories" class="nav__link">Тестирование и обучение</a>
+    </button>
+    <button mat-raised-button>
+      <a href="account/page" class="nav__link">Профиль</a>
+    </button>
+    <section>
+      <div *ngIf="!isSignedIn">
+        <button mat-raised-button>
+          <a href="login" class="nav__link">Войти</a>
+        </button>
+      </div>
+      <div *ngIf="isSignedIn">
+        <button mat-raised-button>
+          <a href="logout" class="nav__link">Выйти</a>
+        </button>
+      </div>
+    </section>
+  </mat-toolbar>
+</ng-template>

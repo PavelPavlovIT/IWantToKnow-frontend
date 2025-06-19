@@ -1,0 +1,59 @@
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Детали</mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-divider></mat-divider>
+    <app-header-hierarchy-of-categories [categoryId]="categoryId"
+                                        [isMatCard]="false"></app-header-hierarchy-of-categories>
+    <mat-divider></mat-divider>
+    <div class="main-div">
+      <ng-container [ngSwitch]="typeTestId">
+        <ng-container *ngSwitchCase="'f237af31-884e-4c25-a8b1-8206abebee50'">
+          <app-task-details-listening
+            [audioSource]="audioSource"
+            [type_task_title]="'Тип задания'"
+            [type_task_value]="'Тест на аудирование'"
+            [task_value]="'Послушай и найди правильный перевод'"
+          ></app-task-details-listening>
+        </ng-container>
+        <ng-container *ngSwitchCase="'7b4da4cf-52b5-4c78-9834-b56e9dbe491a'">
+          <app-task-details-listening
+            [audioSource]="audioSource"
+            [type_task_title]="'Тип задания'"
+            [type_task_value]="'Экзамен на аудирование'"
+            [task_value]="'Послушай и найди правильный перевод'"
+          ></app-task-details-listening>
+        </ng-container>
+        <ng-container *ngSwitchCase="'903bf213-5854-46c4-a73c-e2657be47f13'">
+          <app-task-details-reading
+            [type_task_title]="'Тип задания'"
+            [type_task_value]="'Тест на чтение'"
+            [task_value]="'Прочти и найди правильный перевод'"
+          ></app-task-details-reading>
+        </ng-container>
+        <ng-container *ngSwitchCase="'9f8fb08c-0074-4860-8a95-6f49ab6bf5ac'">
+          <app-task-details-reading
+            [type_task_title]="'Тип задания'"
+            [type_task_value]="'Экзамен на чтение'"
+            [task_value]="'Прочти и найди правильный перевод'"
+          ></app-task-details-reading>
+        </ng-container>
+        <ng-container *ngSwitchCase="'a0165e11-bfcf-42e2-8e36-79f507097d0f'">
+          <app-task-details-speaking
+            [type_task_title]="'Тип задания'"
+            [type_task_value]="'Тест на говорение'"
+            [task_value]="'Переведи и признеси правильно'"
+          ></app-task-details-speaking>
+        </ng-container>
+        <ng-container *ngSwitchCase="'e84ee3a2-82ee-4bc7-898a-50fcbad4f3e0'">
+          <app-task-details-speaking
+            [type_task_title]="'Тип задания'"
+            [type_task_value]="'Экзамен на говорение'"
+            [task_value]="'Переведи и признеси правильно'"
+          ></app-task-details-speaking>
+        </ng-container>
+      </ng-container>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

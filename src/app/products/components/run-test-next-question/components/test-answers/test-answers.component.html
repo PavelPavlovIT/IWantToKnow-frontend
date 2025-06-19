@@ -1,0 +1,40 @@
+<ng-container [ngSwitch]="typeTestId">
+  <ng-container *ngSwitchCase="'f237af31-884e-4c25-a8b1-8206abebee50'">
+    <app-test-answers-listening
+      [todo]="todo"
+      [done]="done">
+    </app-test-answers-listening>
+  </ng-container>
+  <ng-container *ngSwitchCase="'7b4da4cf-52b5-4c78-9834-b56e9dbe491a'">
+    <app-test-answers-listening
+      [todo]="todo"
+      [done]="done">
+    </app-test-answers-listening>
+  </ng-container>
+  <ng-container *ngSwitchCase="'903bf213-5854-46c4-a73c-e2657be47f13'">
+    <app-test-answers-reading
+      [todo]="todo"
+      [done]="done">
+    </app-test-answers-reading>
+  </ng-container>
+  <ng-container *ngSwitchCase="'9f8fb08c-0074-4860-8a95-6f49ab6bf5ac'">
+    <app-test-answers-reading
+      [todo]="todo"
+      [done]="done">
+    </app-test-answers-reading>
+  </ng-container>
+  <ng-container *ngSwitchCase="'a0165e11-bfcf-42e2-8e36-79f507097d0f'">
+    <app-test-answers-speaking
+      [answers]="todo"
+      [question_value]="question_value"
+      (ResultSpeaking)="getResultSpeaking($event)">
+    </app-test-answers-speaking>
+  </ng-container>
+  <ng-container *ngSwitchCase="'e84ee3a2-82ee-4bc7-898a-50fcbad4f3e0'">
+    <app-test-answers-speaking
+      [answers]="todo"
+      [question_value]="question_value"
+      (ResultSpeaking)="getResultSpeaking($event)">
+    </app-test-answers-speaking>
+  </ng-container>
+</ng-container>

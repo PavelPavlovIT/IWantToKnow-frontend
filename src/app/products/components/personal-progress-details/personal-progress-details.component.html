@@ -1,0 +1,49 @@
+<div
+  class="example-accordion-item-body"
+  role="region"
+  [style.display]="expanded ? '' : 'none'"
+>
+  <!-- <div *ngIf="test.testQuestionCount!=test.correctAnswersCount">
+    <button mat-raised-button (click)="CreateTest(test.testId)">Create test: "Work on mistakes"</button>
+  </div> -->
+
+  <mat-card>
+    <mat-card-content>
+      <section>
+        <mat-card-title>
+          Datetime: {{ test.dateStarted }} - {{ test.timeStarted }}
+        </mat-card-title>
+        <mat-card-subtitle class="correct-answer-text">
+          Count correct answer: {{ getPercent(test) }} %
+        </mat-card-subtitle>
+      </section>
+    </mat-card-content>
+  </mat-card>
+
+  <div *ngFor="let item of testDetails">
+    <div *ngIf="item.isCorrectAnswer; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+      <mat-card class="correct-answer">
+        <mat-card-title>
+          Question: {{ item.question }}
+        </mat-card-title>
+        <mat-card-subtitle>
+          Correct answer: {{ item.correctAnswerTitle }}
+        </mat-card-subtitle>
+      </mat-card>
+    </ng-template>
+    <ng-template #elseBlock>
+      <mat-card class="incorrect-answer">
+        <mat-card-title class="category-name">
+          Question: {{ item.question }}
+        </mat-card-title>
+        <mat-card-subtitle class="incorrect-answer-text">
+          Your answer: "{{ item.incorrectAnswerTitle }}"
+        </mat-card-subtitle>
+        <mat-card-subtitle>
+          <!--                  <button mat-raised-button (click)="Goto(item.proof)">Correct answer</button>-->
+        </mat-card-subtitle>
+      </mat-card>
+    </ng-template>
+  </div>
+</div>

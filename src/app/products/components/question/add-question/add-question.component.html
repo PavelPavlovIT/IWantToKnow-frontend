@@ -1,0 +1,79 @@
+<app-header-hierarchy-of-categories [categoryId]="categoryId"></app-header-hierarchy-of-categories>
+<div class="main-div">
+  <form class="add-question" [formGroup]="addQuestionForm" (ngSubmit)="submitForm()">
+    <mat-tab-group>
+      <mat-tab label="English">
+        <mat-card>
+          <input type="hidden" [formControl]="addQuestionForm.controls.categoryId">
+          <div class="example-button-row">
+            <mat-form-field class="full-width">
+              <mat-label>Question title</mat-label>
+              <textarea matInput placeholder="..." [formControl]="addQuestionForm.controls.titleEn"
+                        [value]="valueFromClipboard"></textarea>
+<!--              <button (click)="PasteFromClipboard">-->
+<!--&lt;!&ndash;                mat-mini-fab aria-label="Example icon button with a menu icon">&ndash;&gt;-->
+<!--                <mat-icon>menu</mat-icon>-->
+<!--              </button>-->
+            </mat-form-field>
+
+          </div>
+          <mat-divider></mat-divider>
+          <mat-form-field class="full-width">
+            <mat-label>Url description</mat-label>
+            <textarea matInput placeholder="..." [formControl]="addQuestionForm.controls.proofUrlEn"></textarea>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Correct answer</mat-label>
+            <textarea class="correct-answer" matInput placeholder="..."
+                      [formControl]="addQuestionForm.controls.correctAnswerEn"></textarea>
+          </mat-form-field>
+          <mat-divider></mat-divider>
+          <button mat-raised-button type="submit">Save Question</button>
+        </mat-card>
+      </mat-tab>
+
+      <mat-tab label="Spanish">
+        <mat-card>
+          <input type="hidden" [formControl]="addQuestionForm.controls.categoryId">
+          <mat-form-field class="full-width">
+            <mat-label>Question title</mat-label>
+            <textarea matInput placeholder="..." [formControl]="addQuestionForm.controls.titleEs"></textarea>
+          </mat-form-field>
+          <mat-divider></mat-divider>
+          <mat-form-field class="full-width">
+            <mat-label>Url description</mat-label>
+            <textarea matInput placeholder="..." [formControl]="addQuestionForm.controls.proofUrlEs"></textarea>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Correct answer</mat-label>
+            <textarea matInput placeholder="..." [formControl]="addQuestionForm.controls.correctAnswerEs"></textarea>
+          </mat-form-field>
+          <!--          <mat-divider></mat-divider>-->
+          <!--          <button mat-raised-button type="submit">Save Question</button>-->
+        </mat-card>
+      </mat-tab>
+
+      <mat-tab label="Russian">
+        <mat-card>
+          <input type="hidden" [formControl]="addQuestionForm.controls.categoryId">
+          <mat-form-field class="full-width">
+            <mat-label>Question title</mat-label>
+            <textarea matInput placeholder="..." [formControl]="addQuestionForm.controls.titleRu"></textarea>
+          </mat-form-field>
+          <mat-divider></mat-divider>
+          <mat-form-field class="full-width">
+            <mat-label>Url description</mat-label>
+            <textarea matInput placeholder="..." [formControl]="addQuestionForm.controls.proofUrlRu"></textarea>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Correct answer</mat-label>
+            <textarea matInput placeholder="..." [formControl]="addQuestionForm.controls.correctAnswerRu"></textarea>
+          </mat-form-field>
+          <!--          <mat-divider></mat-divider>-->
+          <!--          <button mat-raised-button type="submit">Save Question</button>-->
+        </mat-card>
+      </mat-tab>
+    </mat-tab-group>
+  </form>
+
+</div>

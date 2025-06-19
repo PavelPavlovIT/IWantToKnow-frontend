@@ -1,0 +1,47 @@
+<ng-container [ngSwitch]="typeTestId">
+  <ng-container *ngSwitchCase="'2c4286c2-a0f5-4a72-861c-12829546981b'">
+    <app-study-answers-listening
+      [todo]="todo"
+      [done]="done"
+      [isSuccess]="isSuccess"
+      [isError]="isError"
+    >
+    </app-study-answers-listening>
+  </ng-container>
+  <ng-container *ngSwitchCase="'dbf39bef-b195-48c8-b328-d1087e085e18'">
+    <app-study-answers-reading
+      [todo]="todo"
+      [done]="done"
+      [isSuccess]="isSuccess"
+      [isError]="isError"
+    >
+    </app-study-answers-reading>
+  </ng-container>
+  <ng-container *ngSwitchCase="'80907d2b-8387-4d4d-b7d6-1bc7d617d1bb'">
+    <app-study-answers-speaking-easy-level
+      [Reverse]="Reverse"
+      [answers]="todo"
+      [question_value]="question_value"
+      (Result)="getResult($event)"
+    >
+    </app-study-answers-speaking-easy-level>
+  </ng-container>
+  <ng-container *ngSwitchCase="'1928f7d7-225f-4c32-b3f8-4786dc3dffee'">
+    <app-study-answers-speaking-medium-level
+      [Reverse]="Reverse"
+      [answers]="todo"
+      [question_value]="question_value"
+      (Result)="getResult($event)"
+    >
+    </app-study-answers-speaking-medium-level>
+  </ng-container>
+  <ng-container *ngSwitchCase="'930c9e4a-60cc-462a-9b4a-0f2e6b263932'">
+    <app-study-answers-speaking-difficult-level
+      [Reverse]="Reverse"
+      [answers]="todo"
+      [question_value]="question_value"
+      (Result)="getResult($event)"
+    >
+    </app-study-answers-speaking-difficult-level>
+  </ng-container>
+</ng-container>

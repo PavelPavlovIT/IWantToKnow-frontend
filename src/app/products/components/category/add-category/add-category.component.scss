@@ -1,0 +1,42 @@
+.main-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-card {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+mat-card-title {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+mat-card-subtitle {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+mat-card-content {
+    justify-content: center;
+}
+
+section {
+    display: table;
+}
+
+.add-category {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 400px;
+    max-width: 700px;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.full-width {
+    width: 100%;
+}

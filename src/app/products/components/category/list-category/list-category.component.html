@@ -1,0 +1,123 @@
+<!--<app-header-hierarchy-of-categories [categoryId]="currentCategoryId"></app-header-hierarchy-of-categories>-->
+<!--<div *ngFor="let category of categories" [ngClass]="isMobile ? 'items-row-mobile' : 'items-row-desktop'">-->
+<!--  <div *ngIf="!category.hidden; then activeCategoryBlockDesktop"></div>-->
+<!--  <ng-template #activeCategoryBlockDesktop>-->
+<!--    <div *ngIf="category.countQuestions==-2; then BlockCategoryWithExamDesktop"></div>-->
+<!--    <ng-template #BlockCategoryWithExamDesktop>-->
+<!--      <mat-card [ngClass]="isMobile ? 'mat-card-exam-mobile' : 'mat-card-exam-desktop'">-->
+<!--        <mat-card-content [id]="category.categoryId">-->
+<!--          <section>-->
+<!--            <mat-card-title>-->
+<!--              <a href="products/categories/{{category.categoryId}}" class="nav__link" matInput>{{ category.nameRu }}</a>-->
+<!--            </mat-card-title>-->
+<!--            <mat-card-subtitle ngClass="categoryDescription">-->
+<!--              {{ category.descriptionRu }}-->
+<!--            </mat-card-subtitle>-->
+<!--            <mat-card-subtitle ngClass="categoryDescription">-->
+<!--              Последние результаты тестов-->
+<!--            </mat-card-subtitle>-->
+<!--            <mat-card-subtitle ngClass="categoryDescription">-->
+<!--              <div-->
+<!--                *ngIf="category.testResultListenRu===''; then BlockLinkToPremiumExamListen else BlockPersentExamListen">-->
+<!--              </div>-->
+<!--              <ng-template #BlockLinkToPremiumExamListen>-->
+<!--                Аудирование: доступны <a href="account/page" class="nav__link" matInput>"Premium user"</a>-->
+<!--              </ng-template>-->
+<!--              <ng-template #BlockPersentExamListen>-->
+<!--                {{ "Аудирование: " + category.testResultListenRu }}-->
+<!--              </ng-template>-->
+<!--            </mat-card-subtitle>-->
+<!--            <mat-card-subtitle ngClass="categoryDescription">-->
+<!--              <div *ngIf="category.testResultReadRu===''; then BlockLinkToPremiumExamRead else BlockPersentExamRead">-->
+<!--              </div>-->
+<!--              <ng-template #BlockLinkToPremiumExamRead>-->
+<!--                Чтение: доступны <a href="account/page" class="nav__link" matInput>"Premium user"</a>-->
+<!--              </ng-template>-->
+<!--              <ng-template #BlockPersentExamRead>-->
+<!--                {{ "Чтение: " + category.testResultReadRu }}-->
+<!--              </ng-template>-->
+<!--            </mat-card-subtitle>-->
+<!--            <div ngClass="sectionButtons">-->
+<!--              <button matButton="elevated" class="button-exam" (click)="openExamBottomSheet(-->
+<!--                category.categoryId,-->
+<!--                category.nameRu,-->
+<!--                category.reverse-->
+<!--              )">Экзамен-->
+<!--              </button>-->
+<!--              <button matButton="elevated" class="button-exam-disabled" disabled><s>Изучение</s></button>-->
+<!--            </div>-->
+<!--          </section>-->
+<!--        </mat-card-content>-->
+<!--      </mat-card>-->
+<!--    </ng-template>-->
+<!--    <div *ngIf="category.countQuestions==-1; then BlockJustCategoryDesktop"></div>-->
+<!--    <ng-template #BlockJustCategoryDesktop>-->
+<!--      <mat-card [ngClass]="isMobile ? 'mat-card-exam-mobile' : 'mat-card-exam-desktop'">-->
+<!--        <mat-card-content [id]="category.categoryId">-->
+<!--          <section>-->
+<!--            <mat-card-title>-->
+<!--              <a href="products/categories/{{category.categoryId}}" class="nav__link" matInput>-->
+<!--                {{ category.nameRu }}</a>-->
+<!--            </mat-card-title>-->
+<!--            <mat-card-subtitle ngClass="categoryDescription">-->
+<!--              {{ category.descriptionRu }}-->
+<!--            </mat-card-subtitle>-->
+<!--          </section>-->
+<!--        </mat-card-content>-->
+<!--      </mat-card>-->
+<!--    </ng-template>-->
+<!--    <div *ngIf="category.countQuestions>0; then BlockQuestionsDesktop"></div>-->
+<!--    <ng-template #BlockQuestionsDesktop>-->
+<!--      <mat-card [ngClass]="isMobile ? 'mat-card-mobile' : 'mat-card-desktop'">-->
+<!--        <mat-card-content [id]="category.categoryId">-->
+<!--          <section>-->
+<!--            <mat-card-title>-->
+<!--              <a href="products/questions/{{category.categoryId}}" class="nav__link" matInput>-->
+<!--                {{ category.nameRu }}-->
+<!--              </a>-->
+<!--            </mat-card-title>-->
+<!--            <mat-card-subtitle ngClass="categoryDescription">-->
+<!--              {{ category.descriptionRu }}-->
+<!--            </mat-card-subtitle>-->
+<!--            <mat-card-subtitle ngClass="categoryDescription">-->
+<!--              Последние результаты тестов-->
+<!--            </mat-card-subtitle>-->
+<!--            <mat-card-subtitle ngClass="categoryDescription">-->
+<!--              <div-->
+<!--                *ngIf="category.testResultListenRu===''; then BlockLinkToPremiumListen else BlockPersentListen"></div>-->
+<!--              <ng-template #BlockLinkToPremiumListen>-->
+<!--                Аудирование: доступны <a href="account/page" class="nav__link" matInput>"Premium user"</a>-->
+<!--              </ng-template>-->
+<!--              <ng-template #BlockPersentListen>-->
+<!--                {{ "Аудирование: " + category.testResultListenRu }}-->
+<!--              </ng-template>-->
+<!--            </mat-card-subtitle>-->
+<!--            <mat-card-subtitle ngClass="categoryDescription">-->
+<!--              <div *ngIf="category.testResultReadRu===''; then BlockLinkToPremiumRead else BlockPersentRead"></div>-->
+<!--              <ng-template #BlockLinkToPremiumRead>-->
+<!--                Чтение: доступны <a href="account/page" class="nav__link" matInput>"Premium user"</a>-->
+<!--              </ng-template>-->
+<!--              <ng-template #BlockPersentRead>-->
+<!--                {{ "Чтение: " + category.testResultReadRu }}-->
+<!--              </ng-template>-->
+<!--            </mat-card-subtitle>-->
+<!--            <div ngClass="sectionButtons">-->
+<!--              <button matButton="elevated" class="button-exam" (click)="openTestBottomSheet(-->
+<!--                category.categoryId,-->
+<!--                category.nameRu,-->
+<!--                category.reverse-->
+<!--              )">Тест-->
+<!--              </button>-->
+<!--              <button matButton="elevated" class="button-learn" (click)="openStudyBottomSheet(-->
+<!--                category.categoryId,-->
+<!--                category.nameRu,-->
+<!--                category.reverse-->
+<!--              )">Изучение-->
+<!--              </button>-->
+<!--            </div>-->
+<!--          </section>-->
+<!--        </mat-card-content>-->
+<!--      </mat-card>-->
+<!--    </ng-template>-->
+<!--  </ng-template>-->
+<!--</div>-->

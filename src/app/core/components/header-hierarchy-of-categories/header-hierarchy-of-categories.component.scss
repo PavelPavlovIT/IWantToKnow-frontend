@@ -1,0 +1,32 @@
+.right_arrow{
+  margin: -0.6rem 0;
+}
+
+mat-card {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+mat-card-title {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+mat-card-subtitle {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+mat-card-content {
+    justify-content: center;
+}
+
+mat-nav-list.list-horizontal {
+    // padding: 0;
+    .mat-list-item {
+      //display: inline-block;
+    //   height: auto;
+    //   width: auto;
+    //  margin-top: 100;
+    }
+  }

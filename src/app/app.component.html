@@ -1,0 +1,8 @@
+<main class="center-main">
+ <app-header [isSignedIn]="isSignedIn" [lang]="userInfo?.language"></app-header>
+  <section class="content content-main">
+    <loading-indicator />
+    <router-outlet></router-outlet>
+  </section>
+  <app-footer fxFlexOffset="auto" [lang]="userInfo?.language"></app-footer>
+</main>

@@ -1,0 +1,40 @@
+﻿<mat-nav-list>
+  <a [routerLink]="['/products/run-test-by-category',
+                  data.categoryId,
+                  data.nameRu,
+                  'f237af31-884e-4c25-a8b1-8206abebee50',
+                  'undefined']"
+     mat-list-item (click)="openLink($event)">
+    <span matListItemTitle>Тест</span>
+    <span matLine>аудирование</span>
+  </a>
+  <a [routerLink]="['/products/run-test-by-category',
+                  data.categoryId,
+                  data.nameRu,
+                  '903bf213-5854-46c4-a73c-e2657be47f13',
+                  'undefined']"
+     mat-list-item (click)="openLink($event)">
+    <span matListItemTitle>Тест</span>
+    <span matLine>чтение</span>
+  </a>
+  <div *ngIf="(data.reverse == false)">
+    <div *ngIf="data.expired; then BlockUser else BlockPremiumUser"></div>
+    <ng-template #BlockUser>
+      <a [routerLink]="['account/page']"
+         mat-list-item (click)="openLink($event)">
+        <span matListItemTitle>Тест говорения <br>доступно для только "Premium user"</span>
+      </a>
+    </ng-template>
+    <ng-template #BlockPremiumUser>
+      <a [routerLink]="['/products/run-test-by-category',
+                  data.categoryId,
+                  data.nameRu,
+                  'a0165e11-bfcf-42e2-8e36-79f507097d0f',
+                  'undefined']"
+         mat-list-item (click)="openLink($event)">
+        <span matListItemTitle>Тест</span>
+        <span matLine>говорение</span>
+      </a>
+    </ng-template>
+  </div>
+</mat-nav-list>

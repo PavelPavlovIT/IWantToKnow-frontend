@@ -1,0 +1,13 @@
+<mat-card [ngClass]="IsMobile ? 'mat-card-exam-mobile' : 'mat-card-exam-desktop'">
+  <mat-card-content [id]="CategoryId">
+    <section>
+      <mat-card-title>
+        <a href="products/categories/{{CategoryId}}" class="nav__link" matInput>
+          {{ Title }}</a>
+      </mat-card-title>
+      <mat-card-subtitle ngClass="categoryDescription">
+        {{ Description }}
+      </mat-card-subtitle>
+    </section>
+  </mat-card-content>
+</mat-card>

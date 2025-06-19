@@ -1,0 +1,19 @@
+<div class="main-div">
+  <div [ngClass]="isMobile ? 'item-mobile' : 'item-desktop'">
+    <table style="width: 100%">
+      <tr>
+        <td style="width: 80%">
+          <mat-card-subtitle ngClass="title"><b>{{ Answers[0].titleRu }}</b></mat-card-subtitle>
+        </td>
+        <td style="width: 20%">
+              <span height="50" align="right" class="float-right" id="canvasClock" *ngIf="isMobile">
+                <cs-canvas-clock [isMobile]="true" [width]="50" [height]="50"></cs-canvas-clock>
+              </span>
+          <span height="100" align="right" class="float-right" id="canvasClock" *ngIf="!isMobile">
+                <cs-canvas-clock></cs-canvas-clock>
+              </span>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

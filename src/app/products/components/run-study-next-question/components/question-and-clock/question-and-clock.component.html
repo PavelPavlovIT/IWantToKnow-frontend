@@ -1,0 +1,40 @@
+<ng-container [ngSwitch]="typeTestId">
+  <ng-container *ngSwitchCase="'2c4286c2-a0f5-4a72-861c-12829546981b'">
+    <app-study-question-and-clock-listening
+      [isTimer]="false"
+      [audioSource]="audioSource"
+      [question_value]="question">
+    </app-study-question-and-clock-listening>
+  </ng-container>
+  <ng-container *ngSwitchCase="'dbf39bef-b195-48c8-b328-d1087e085e18'">
+    <app-study-question-and-clock-reading
+      [isTimer]="false"
+      [question_value]="question">
+    </app-study-question-and-clock-reading>
+  </ng-container>
+  <ng-container *ngSwitchCase="'80907d2b-8387-4d4d-b7d6-1bc7d617d1bb'">
+    <app-study-question-and-clock-speaking-easy-level
+      [isTimer]="false"
+      [Answers]="Answers"
+      [audioSource]="audioSource"
+      [question_value]="question"
+    >
+    </app-study-question-and-clock-speaking-easy-level>
+  </ng-container>
+  <ng-container *ngSwitchCase="'1928f7d7-225f-4c32-b3f8-4786dc3dffee'">
+    <app-study-question-and-clock-speaking-medium-level
+      [isTimer]="false"
+      [Answers]="Answers"
+      [audioSource]="audioSource"
+      [question_value]="question">
+    </app-study-question-and-clock-speaking-medium-level>
+  </ng-container>
+  <ng-container *ngSwitchCase="'930c9e4a-60cc-462a-9b4a-0f2e6b263932'">
+    <app-study-question-and-clock-speaking-difficult-level
+      [isTimer]="false"
+      [Answers]="Answers"
+      [audioSource]="audioSource"
+      [question_value]="question">
+    </app-study-question-and-clock-speaking-difficult-level>
+  </ng-container>
+</ng-container>

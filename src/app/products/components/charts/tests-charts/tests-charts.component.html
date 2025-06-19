@@ -1,0 +1,146 @@
+<mat-tab-group>
+  <div *ngIf="isExpired; else BlockPremiumUser">
+    <mat-tab label="Результаты тестов" style="min-height: 700px; color: steelblue">
+      <mat-card>
+        <mat-card-subtitle class="mat-card-subtitle">Результаты тестов высылаются c 1 по 10 числа каждого месяца на почту. </mat-card-subtitle>
+        <mat-card-subtitle class="mat-card-subtitle">Всегда результаты тестов доступны <a href="account/page" class="nav__link"
+            matInput>"Premium users"</a>
+        </mat-card-subtitle>
+
+      </mat-card>
+    </mat-tab>
+  </div>
+  <ng-template #BlockPremiumUser>
+    <mat-tab label="Говорение" style="min-height: 700px;">
+      <cdk-accordion>
+        <div *ngIf="chartsSpeaking.length>0; else elseBlock">
+          <div *ngFor="let item of chartsSpeaking">
+            <br>
+            <app-header-hierarchy-of-categories [categoryId]="item.categoryId"></app-header-hierarchy-of-categories>
+            <cdk-accordion-item #accordionItem="cdkAccordionItem" class="accordion-item"
+                                (click)="accordionClick(accordionItem.expanded, item)">
+              <button class="example-accordion-item-header" (click)="accordionItem.toggle()" tabindex="0">
+                <mat-card>
+                  <mat-card-content>
+                    <section>
+                      <div nz-col nzSpan="12">
+                        <div id="chart0" echarts [options]="item.options" theme="macarons" class="chart"></div>
+                      </div>
+                    </section>
+                  </mat-card-content>
+                </mat-card>
+
+                <span class="example-accordion-item-description">
+                  Click to {{ accordionItem.expanded ? 'close' : 'open' }}
+                </span>
+              </button>
+              @if (accordionItem.expanded) {
+                <div *ngFor="let item of item.tests">
+                  <app-personal-progress-details [expanded]="accordionItem.expanded" [test]="item"
+                                                 [testDetails]="testDetails"></app-personal-progress-details>
+                </div>
+              }
+            </cdk-accordion-item>
+          </div>
+        </div>
+        <ng-template #elseBlock>
+          <mat-card>
+            <mat-card-content>
+              <section>
+                У Вас еще нет завершенных тестов.
+              </section>
+            </mat-card-content>
+          </mat-card>
+        </ng-template>
+      </cdk-accordion>
+    </mat-tab>
+    <mat-tab label="Аудирование" style="min-height: 700px;">
+      <cdk-accordion>
+        <div *ngIf="chartsListen.length>0; else elseBlock">
+          <div *ngFor="let item of chartsListen">
+            <br>
+            <app-header-hierarchy-of-categories [categoryId]="item.categoryId"></app-header-hierarchy-of-categories>
+            <cdk-accordion-item #accordionItem="cdkAccordionItem" class="accordion-item"
+              (click)="accordionClick(accordionItem.expanded, item)">
+              <button class="example-accordion-item-header" (click)="accordionItem.toggle()" tabindex="0">
+                <mat-card>
+                  <mat-card-content>
+                    <section>
+                      <div nz-col nzSpan="12">
+                        <div id="chart1" echarts [options]="item.options" theme="macarons" class="chart"></div>
+                      </div>
+                    </section>
+                  </mat-card-content>
+                </mat-card>
+
+                <span class="example-accordion-item-description">
+                  Click to {{ accordionItem.expanded ? 'close' : 'open' }}
+                </span>
+              </button>
+              @if (accordionItem.expanded) {
+              <div *ngFor="let item of item.tests">
+                <app-personal-progress-details [expanded]="accordionItem.expanded" [test]="item"
+                  [testDetails]="testDetails"></app-personal-progress-details>
+              </div>
+              }
+            </cdk-accordion-item>
+          </div>
+        </div>
+        <ng-template #elseBlock>
+          <mat-card>
+            <mat-card-content>
+              <section>
+                У Вас еще нет завершенных тестов.
+              </section>
+            </mat-card-content>
+          </mat-card>
+        </ng-template>
+      </cdk-accordion>
+    </mat-tab>
+    <mat-tab label="Чтение" style="min-height: 700px;">
+      <cdk-accordion>
+        <div *ngIf="chartsRead.length>0; else elseBlock">
+          <div *ngFor="let item of chartsRead">
+            <br>
+            <app-header-hierarchy-of-categories [categoryId]="item.categoryId"></app-header-hierarchy-of-categories>
+            <cdk-accordion-item #accordionItem="cdkAccordionItem" class="accordion-item"
+              (click)="accordionClick(accordionItem.expanded, item)">
+              <button class="example-accordion-item-header" (click)="accordionItem.toggle()" tabindex="0">
+                <mat-card>
+                  <mat-card-content>
+                    <section>
+                      <div nz-col nzSpan="12">
+
+                        <div id="chart1" echarts [options]="item.options" theme="macarons" class="chart"></div>
+                      </div>
+                    </section>
+                  </mat-card-content>
+                </mat-card>
+
+                <span class="example-accordion-item-description">
+                  Click to {{ accordionItem.expanded ? 'close' : 'open' }}
+                </span>
+              </button>
+              @if (accordionItem.expanded) {
+              <div *ngFor="let item of item.tests">
+                <app-personal-progress-details [expanded]="accordionItem.expanded" [test]="item"
+                  [testDetails]="testDetails"></app-personal-progress-details>
+              </div>
+              }
+              <!--      <mat-divider></mat-divider>-->
+            </cdk-accordion-item>
+          </div>
+        </div>
+        <ng-template #elseBlock>
+          <mat-card>
+            <mat-card-content>
+              <section>
+                У Вас еще нет завершенных тестов.
+              </section>
+            </mat-card-content>
+          </mat-card>
+        </ng-template>
+      </cdk-accordion>
+    </mat-tab>
+  </ng-template>
+</mat-tab-group>
